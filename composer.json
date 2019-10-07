@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Chumper\\Zipper\\": "src/Chumper/Zipper"
+            "spresnac\\Zipper\\": "src/spresnac/Zipper"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Chumper\\Zipper\\": "tests/"
+            "spresnac\\Zipper\\": "tests/"
         }
     },
     "config": {
@@ -46,10 +46,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Chumper\\Zipper\\ZipperServiceProvider"
+                "spresnac\\Zipper\\ZipperServiceProvider"
             ],
             "aliases": {
-                "Zipper": "Chumper\\Zipper\\Zipper"
+                "Zipper": "spresnac\\Zipper\\Zipper"
             }
         }
     },

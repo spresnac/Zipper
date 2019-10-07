@@ -16,14 +16,14 @@ This is a simple Wrapper around the ZipArchive methods with some handy functions
 ## Installation
 
 1. Add this package to the list of required packages, inside `composer.json`
-  * for Laravel 5 or 6: `"chumper/zipper": "1.0.x"`
-  * ~~for Laravel 4: `"chumper/zipper": "0.5.x"`~~
+  * for Laravel 5 or 6: `"spresnac/zipper": "1.0.x"`
+  * ~~for Laravel 4: `"spresnac/zipper": "0.5.x"`~~
 2. Run `composer update`
 
 3. Go to `app/config/app.php`
 
-  * add to providers `Chumper\Zipper\ZipperServiceProvider::class`
-  * add to aliases `'Zipper' => Chumper\Zipper\Zipper::class`
+  * add to providers `spresnac\Zipper\ZipperServiceProvider::class`
+  * add to aliases `'Zipper' => spresnac\Zipper\Zipper::class`
 
 You can now access Zipper with the `Zipper` alias.
 
@@ -36,7 +36,7 @@ Zipper::make('public/test.zip')->add($files)->close();
 
 ## Another example
 ```php
-$zipper = new \Chumper\Zipper\Zipper;
+$zipper = new \spresnac\Zipper\Zipper;
 
 $zipper->make('test.zip')->folder('test')->add('composer.json');
 $zipper->zip('test.zip')->folder('test')->add('composer.json','test');
