@@ -1,27 +1,34 @@
 {
-    "name": "chumper/zipper",
+    "name": "spresnac/zipper",
     "type": "library",
     "description": "This is a little neat helper for the ZipArchive methods with handy functions",
     "keywords": ["laravel", "ZIP", "Archive"],
-    "homepage": "http://github.com/Chumper/zipper",
+    "homepage": "http://github.com/spresnac/zipper",
     "license": "Apache2",
     "authors": [
         {
             "name": "Nils Plaschke",
             "email": "github@nilsplaschke.de",
             "homepage": "http://nilsplaschke.de",
+            "role": "Original developer"
+        },
+        {
+            "name": "Sascha Presnac",
+            "email": "presnac@gmail.com",
+            "homepage": "http://twitter.com/spresnac",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.2",
         "ext-zip": "*",
-        "illuminate/support": "^5.0",
-        "illuminate/filesystem": "^5.0"
+        "illuminate/filesystem": "^5.0|^6.0",
+        "illuminate/support": "^5.0|^6.0"
+        
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.7",
-        "mockery/mockery": "^0.9.4"
+        "mockery/mockery": "^1.2",
+        "phpunit/phpunit": "^8.4"
     },
     "autoload": {
         "psr-4": {
