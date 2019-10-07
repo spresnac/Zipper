@@ -1,20 +1,22 @@
 # Note
 
-I haven't updated this package in a long time except merging PRs. The last time I was using this package was with PHP5.
-I archived the repository for the reason that I am no longer working with PHP (we all have to move on sometimes) and have no time to take proper care of it anymore.
+Taking over this to make it compatible with my projects, especially laravel 6+ support.
 
-Feel free to read the code, to fork it or to use it in whatever way you want.
+Original note was:  
+> I haven't updated this package in a long time except merging PRs. The last time I was using this package was with PHP5.  
+> I archived the repository for the reason that I am no longer working with PHP (we all have to move on sometimes) and have no time to take proper care of it anymore.  
+> Feel free to read the code, to fork it or to use it in whatever way you want.
 
 # Zipper
 
-[![Build Status](https://travis-ci.org/Chumper/Zipper.png)](https://travis-ci.org/Chumper/Zipper)
+[![Build Status](https://travis-ci.org/spresnac/Zipper.png)](https://travis-ci.org/spresnac/Zipper)
 
 This is a simple Wrapper around the ZipArchive methods with some handy functions.
 
 ## Installation
 
 1. Add this package to the list of required packages, inside `composer.json`
-  * for Laravel 5: `"chumper/zipper": "1.0.x"`
+  * for Laravel 5 or 6: `"chumper/zipper": "1.0.x"`
   * ~~for Laravel 4: `"chumper/zipper": "0.5.x"`~~
 2. Run `composer update`
 
