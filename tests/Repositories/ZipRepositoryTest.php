@@ -2,10 +2,10 @@
 
 namespace spresnac\Zipper\Repositories;
 
-use Mockery;
 use Exception;
-use ZipArchive;
+use Mockery;
 use PHPUnit\Framework\TestCase;
+use ZipArchive;
 
 /**
  * Created by JetBrains PhpStorm.
