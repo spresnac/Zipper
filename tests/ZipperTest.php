@@ -2,12 +2,12 @@
 
 namespace spresnac\Zipper;
 
-use Mockery;
 use Exception;
-use RuntimeException;
-use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
 use Illuminate\Filesystem\Filesystem;
+use InvalidArgumentException;
+use Mockery;
+use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class ZipperTest extends TestCase
 {
@@ -85,7 +85,7 @@ class ZipperTest extends TestCase
         $this->assertSame('foo', $this->archive->getFileContent('foo'));
         $this->assertSame('foo.bar', $this->archive->getFileContent('foo.bar'));
     }
-    
+
     public function testAddAndGetWithCustomFilenameArray()
     {
         $this->file->shouldReceive('isFile')->with('foo.bar')
@@ -96,7 +96,7 @@ class ZipperTest extends TestCase
         /**Array**/
         $this->archive->add([
             'custom.bar' => 'foo.bar',
-            'custom' => 'foo',
+            'custom'     => 'foo',
         ]);
 
         $this->assertSame('custom', $this->archive->getFileContent('custom'));

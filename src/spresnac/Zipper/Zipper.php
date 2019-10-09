@@ -3,29 +3,29 @@
 namespace spresnac\Zipper;
 
 use Exception;
-use Illuminate\Support\Str;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use spresnac\Zipper\Repositories\RepositoryInterface;
 
 /**
- * This Zipper class is a wrapper around the ZipArchive methods with some handy functions
+ * This Zipper class is a wrapper around the ZipArchive methods with some handy functions.
  *
  * Class Zipper
  */
 class Zipper
 {
     /**
-     * Constant for extracting
+     * Constant for extracting.
      */
     const WHITELIST = 1;
 
     /**
-     * Constant for extracting
+     * Constant for extracting.
      */
     const BLACKLIST = 2;
 
     /**
-     * Constant for matching only strictly equal file names
+     * Constant for matching only strictly equal file names.
      */
     const EXACT_MATCH = 4;
 
@@ -50,7 +50,7 @@ class Zipper
     private $filePath;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param Filesystem $fs
      */
@@ -60,7 +60,7 @@ class Zipper
     }
 
     /**
-     * Destructor
+     * Destructor.
      */
     public function __destruct()
     {
@@ -71,7 +71,7 @@ class Zipper
 
     /**
      * Create a new zip Archive if the file does not exists
-     * opens a zip archive if the file exists
+     * opens a zip archive if the file exists.
      *
      * @param $pathToFile string The file to open
      * @param RepositoryInterface|string $type The type of the archive, defaults to zip, possible are zip, phar
@@ -88,7 +88,7 @@ class Zipper
 
         $objectOrName = $type;
         if (is_string($type)) {
-            $objectOrName = 'spresnac\Zipper\Repositories\\' . ucwords($type) . 'Repository';
+            $objectOrName = 'spresnac\Zipper\Repositories\\'.ucwords($type).'Repository';
         }
 
         if (!is_subclass_of($objectOrName, 'spresnac\Zipper\Repositories\RepositoryInterface')) {
@@ -101,7 +101,7 @@ class Zipper
             } else {
                 $this->repository = $type;
             }
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             throw $e;
         }
 
@@ -111,7 +111,7 @@ class Zipper
     }
 
     /**
-     * Create a new zip archive or open an existing one
+     * Create a new zip archive or open an existing one.
      *
      * @param $pathToFile
      *
@@ -127,7 +127,7 @@ class Zipper
     }
 
     /**
-     * Create a new phar file or open one
+     * Create a new phar file or open one.
      *
      * @param $pathToFile
      *
@@ -143,7 +143,7 @@ class Zipper
     }
 
     /**
-     * Create a new rar file or open one
+     * Create a new rar file or open one.
      *
      * @param $pathToFile
      *
@@ -161,7 +161,7 @@ class Zipper
     /**
      * Extracts the opened zip archive to the specified location <br/>
      * you can provide an array of files and folders and define if they should be a white list
-     * or a black list to extract. By default this method compares file names using "string starts with" logic
+     * or a black list to extract. By default this method compares file names using "string starts with" logic.
      *
      * @param $path string The path to extract to
      * @param array $files       An array of files
@@ -226,7 +226,7 @@ class Zipper
     }
 
     /**
-     * Gets the content of a single file if available
+     * Gets the content of a single file if available.
      *
      * @param $filePath string The full path (including all folders) of the file in the zip
      *
@@ -239,6 +239,7 @@ class Zipper
         if ($this->repository->fileExists($filePath) === false) {
             throw new Exception(sprintf('The file "%s" cannot be found', $filePath));
         }
+
         return $this->repository->getFileContent($filePath);
     }
 
@@ -255,8 +256,8 @@ class Zipper
         if (is_array($pathToAdd)) {
             foreach ($pathToAdd as $key=>$dir) {
                 if (!is_int($key)) {
-                    $this->add($dir, $key); }
-                else {
+                    $this->add($dir, $key);
+                } else {
                     $this->add($dir);
                 }
             }
@@ -274,7 +275,7 @@ class Zipper
     }
 
     /**
-     * Add an empty directory
+     * Add an empty directory.
      *
      * @param $dirName
      *
@@ -288,7 +289,7 @@ class Zipper
     }
 
     /**
-     * Add a file to the zip using its contents
+     * Add a file to the zip using its contents.
      *
      * @param $filename string The name of the file to create
      * @param $content string The file contents
@@ -313,7 +314,7 @@ class Zipper
     }
 
     /**
-     * Remove a file or array of files and folders from the zip archive
+     * Remove a file or array of files and folders from the zip archive.
      *
      * @param $fileToRemove array|string The path/array to the files in the zip
      *
@@ -346,7 +347,7 @@ class Zipper
     }
 
     /**
-     * Sets the password to be used for decompressing
+     * Sets the password to be used for decompressing.
      *
      * @param $password
      *
@@ -358,7 +359,7 @@ class Zipper
     }
 
     /**
-     * Closes the zip file and frees all handles
+     * Closes the zip file and frees all handles.
      */
     public function close()
     {
@@ -396,7 +397,7 @@ class Zipper
     }
 
     /**
-     * Deletes the archive file
+     * Deletes the archive file.
      */
     public function delete()
     {
@@ -409,7 +410,7 @@ class Zipper
     }
 
     /**
-     * Get the type of the Archive
+     * Get the type of the Archive.
      *
      * @return string
      */
@@ -419,7 +420,7 @@ class Zipper
     }
 
     /**
-     * Get the current internal folder pointer
+     * Get the current internal folder pointer.
      *
      * @return string
      */
@@ -429,7 +430,7 @@ class Zipper
     }
 
     /**
-     * Checks if a file is present in the archive
+     * Checks if a file is present in the archive.
      *
      * @param $fileInArchive
      *
@@ -457,7 +458,7 @@ class Zipper
     }
 
     /**
-     * Gets the path to the internal folder
+     * Gets the path to the internal folder.
      *
      * @return string
      */
@@ -467,7 +468,7 @@ class Zipper
     }
 
     /**
-     * List all files that are within the archive
+     * List all files that are within the archive.
      *
      * @param string|null $regexFilter regular expression to filter returned files/folders. See @link http://php.net/manual/en/reference.pcre.pattern.syntax.php
      *
@@ -561,7 +562,7 @@ class Zipper
     }
 
     /**
-     * Add the file to the zip
+     * Add the file to the zip.
      *
      * @param string $pathToAdd
      * @param string $fileName
@@ -579,7 +580,7 @@ class Zipper
     }
 
     /**
-     * Add the file to the zip from content
+     * Add the file to the zip from content.
      *
      * @param $filename
      * @param $content
